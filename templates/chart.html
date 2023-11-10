@@ -1,0 +1,35 @@
+<!-- Include Chart.js library -->
+<script src="static/js/chart.js"></script>
+
+<!-- Create a canvas element to render the chart -->
+<canvas id="myChart"></canvas>
+
+<!-- JavaScript code to generate the chart -->
+<script>
+    // Get the data passed from the Flask route
+    var labels = {{ labels | tojson }};
+    var data = {{ data | tojson }};
+
+    // Create a chart using the canvas element
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Chart Title',
+                data: data,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

@@ -1,0 +1,62 @@
+    <!DOCTYPE html>
+<html>
+  {% include 'header.html' %}
+<body>
+  <div class="container">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Retainer Pricing Table</h1>
+      <p class="lead">Choose a plan that works best for your business.</p>
+    </div>
+
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 fw-normal">Basic</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$300+<small class="text-muted">/ month</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>25 users included</li>
+            <li>1000 GB of storage</li>
+            <li>Phone & email support</li>
+            <li>FCFS support (First Come First Served)</li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block btn-bd-primary">Get started</button>
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 fw-normal">Pro</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$500+<small class="text-muted">/ month</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>100 users included</li>
+            <li>1000 GB of storage</li>
+            <li>Priority phone & email support</li>
+            <li>FCFS onsite response (First Come First Served)</li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block btn-bd-success">Get started</button>
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 fw-normal">Enterprise</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$1200+<small class="text-muted">/ month</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>100+ users included</li>
+            <li>Unlimited storage</li>
+            <li>24/7 Phone and email support</li>
+            <li>Onsite 24/7 Response</li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block btn-bd-danger">Get started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'footer.html' %}
+  <script src="static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

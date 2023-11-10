@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Sign Up</h1>
+  {% if success %}
+    <div class="alert alert-success" role="alert">
+      Account created successfully!
+    </div>
+  {% endif %}
+  <form method="POST" action="{{ url_for('signup') }}">
+    {{ form.csrf_token }}
+    <div class="mb-3">
+      {{ form.username.label }} {{ form.username(size=20) }}
+      {% for error in form.username.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <div class="mb-3">
+      {{ form.password.label }} {{ form.password(size=20) }}
+      {% for error in form.password.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <div class="mb-3">
+      {{ form.backup_email.label }} {{ form.backup_email(size=30) }}
+      {% for error in form.backup_email.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+{% endblock %}

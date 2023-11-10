@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <title>Inboc</title>
+    {% include 'header.html' %}
+    <head>
+    <style>
+        /* Your custom styles here */
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Inbox</h1>
+        
+        <div class="mt-4">
+            <h2>Received Mail</h2>
+            <ul class="list-group">
+                {% for mail in received_mails %}
+                    <li class="list-group-item">{{ mail.subject }} - {{ mail.sender }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="mt-4">
+            <h2>Sent Mail</h2>
+            <ul class="list-group">
+                {% for mail in sent_mails %}
+                    <li class="list-group-item">{{ mail.subject }} - {{ mail.recipient }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="mt-4">
+            <h2>Deleted Mail</h2>
+            <ul class="list-group">
+                {% for mail in deleted_mails %}
+                    <li class="list-group-item">{{ mail.subject }} - {{ mail.sender }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="mt-4">
+            <h2>Spam</h2>
+            <ul class="list-group">
+                {% for mail in spam_mails %}
+                    <li class="list-group-item">{{ mail.subject }} - {{ mail.sender }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="mt-4">
+            <h2>Compose Mail</h2>
+            <form method="POST" action="{{ url_for('send_mail') }}">
+                <div class="mb-3">
+                    <label for="recipient" class="form-label">Recipient:</label>
+                    <input type="text" name="recipient" id="recipient" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subject:</label>
+                    <input type="text" name="subject" id="subject" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content:</label>
+                    <textarea name="content" id="content" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+        
+        <div class="mt-4">
+            <h2>Logout</h2>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</body>
+</html>
